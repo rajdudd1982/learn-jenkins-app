@@ -1,5 +1,19 @@
 // @ts-check
-const { test, expect } = require('@playwright/test');
+const { test, expect, defineConfig } = require('@playwright/test');
+
+const port = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000; // Default to 3000
+
+export default defineConfig({
+  webServer: {
+    command: `npm run start --port ${port}`, // Pass the port to your start script
+    url: `http://localhost:${port}`,
+    reuseExistingServer: !process.env.CI,
+  },
+  use: {
+    baseURL: `http://localhost:${port}`,
+  },
+});
+
 
 test('has title', async ({ page }) => {
   await page.goto('/');
