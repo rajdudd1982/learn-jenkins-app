@@ -18,7 +18,7 @@ pipeline {
                     npm run  build
                     ls -la
                     npm install serve
-                    server -s build
+                    #server -s build
 
                 '''
             }
