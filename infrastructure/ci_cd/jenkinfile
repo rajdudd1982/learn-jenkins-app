@@ -46,7 +46,7 @@ pipeline {
             steps {
                 sh '''
                     npm install serve 
-                    PORT=3001 node_modules/.bin/serve -s build &
+                    PORT=3001 node_modules/.bin/serve -s build
                     sleep 10
                     npx playwright test
 
