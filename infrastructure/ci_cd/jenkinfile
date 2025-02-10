@@ -17,8 +17,6 @@ pipeline {
                     ls -la
                     npm run  build
                     ls -la
-                    npm install serve
-                    #server -s build
 
                 '''
             }
@@ -46,7 +44,7 @@ pipeline {
             steps {
                 sh '''
                     npm install serve 
-                    PORT=3001 node_modules/.bin/serve -s build
+                    PORT=3001 node_modules/.bin/serve -s build  -p 3001
                     sleep 10
                     npx playwright test
 
