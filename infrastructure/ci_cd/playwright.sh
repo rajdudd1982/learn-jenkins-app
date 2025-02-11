@@ -11,7 +11,7 @@ docker build -f infrastructure/ci_cd/Dockerfile_playwright -t ${imageName} .
 docker rm ${containerName}
 
 #run container
-docker run -d -p 3021:3000 --name ${containerName} ${imageName} 2> docker_run.log 
+docker run -p 3021:3000 --name ${containerName} ${imageName} 2> docker_run.log 
 
 
 docker exec -it ${containerName} bash -c 'npm install serve'
