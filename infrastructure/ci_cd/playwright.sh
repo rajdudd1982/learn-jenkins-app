@@ -14,9 +14,9 @@ docker rm ${containerName}
 docker run -d -it  --name ${containerName} ${imageName}
 
 
-docker exec -it ${containerName} bash -c 'npm install serve'
+docker exec -i ${containerName} bash -c 'npm install serve'
 
 #run serve
-docker exec -it ${containerName} bash -c 'npx serve -s /app/build -p 3000'
+docker exec -i ${containerName} bash -c 'npx serve -s /app/build -p 3000'
 
-docker exec ${containerName} npx playwright test --reporter=allure-playwright
+docker exec ${containerName} npx playwright test
