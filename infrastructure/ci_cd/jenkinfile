@@ -43,7 +43,8 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install serve 
+                    npm install serve --loglevel verbose > npm_install.log 2>&1
+                    lsof -i :3001
                     PORT=3001 node_modules/.bin/serve -s build  -p 3001
                     sleep 10
                     npx playwright test
