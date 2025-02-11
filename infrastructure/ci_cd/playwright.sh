@@ -8,7 +8,6 @@ containerName="playwright"
 docker build -f infrastructure/ci_cd/Dockerfile_playwright -t ${imageName} .
 
 
-docker kill ${containerName}
 docker rm ${containerName}
 
 #run container
