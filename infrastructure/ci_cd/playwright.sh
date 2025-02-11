@@ -5,7 +5,7 @@ containerName="playwright"
 
 npm ci
 npm run build
-docker build -f Dockerfile_playwright -t ${imageName} .
+docker build -f infrastructure/ci_cd/Dockerfile_playwright -t ${imageName} .
 
 #run container
 docker run -d -p 3021:3000 --name ${containerName} ${imageName}
