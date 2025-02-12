@@ -2,6 +2,6 @@ FROM mcr.microsoft.com/playwright:v1.50.1-noble
 WORKDIR /app
 
 # Copy the build directory during the image build
-COPY build /app/build
+COPY . .
 
 EXPOSE 3021
