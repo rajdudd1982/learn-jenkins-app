@@ -16,7 +16,9 @@ docker run -d -it -p 3021:3000 --name ${containerName} ${imageName}
 
 docker exec -i ${containerName} bash -c 'npm install serve'
 
+
+docker exec -i ${containerName} bash -c 'PORT=3021 npx serve -s /app/build -p 3021 &'
+
 #run serve
-docker exec -i ${containerName} bash -c 'PORT=3021 npx serve -s /app/build -p 3021'
 
 docker exec ${containerName} npx playwright test
